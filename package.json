@@ -1,0 +1,32 @@
+{
+  "name": "scrapper",
+  "version": "1.0.0",
+  "description": "scrapping engine and expose via rest server",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha full-test"
+  },
+  "author": "alfi setyadi <alfi@dignot.com>",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.6.1",
+    "restify": "^4.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "superagent": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/allfix53/scrapper.git"
+  },
+  "keywords": [
+    "scrapping",
+    "node"
+  ],
+  "bugs": {
+    "url": "https://github.com/allfix53/scrapper/issues"
+  },
+  "homepage": "https://github.com/allfix53/scrapper#readme"
+}
