@@ -42,6 +42,7 @@ describe("Crawl test", function () {
             .send({ url: 'http://google.com' })
             .end(function (err, res) {
                 response = res;
+                console.log(res.body);
                 done();
             });
     });

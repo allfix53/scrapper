@@ -3,11 +3,11 @@ module.exports = {
         return res.send('server up');
     },
     'crawl': function (req, res, next) {
-        console.log(req)
+        // console.log(req)
         let isString = (typeof req.body.url == 'string') ? true : false;
         if (!isString) return res.send('url (String) is required')
 
-        if (ValidURL(req.body.url)) {
+        if(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(req.body.url)){
             return res.send('crawling ' + req.body.url);
         }
         return res.send({ error: 'url is not valid' });
