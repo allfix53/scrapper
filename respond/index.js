@@ -1,4 +1,25 @@
+const db = require('./../db');
+
 module.exports = {
+    'new': function (req, res, next) {
+        db.data.create(req.body)
+            .then(function (created) {
+                return res.send(created);
+            })
+            .catch(function (err) {
+                return res.send(err);
+            })
+    },
+    'latest': function (req, res, next) {
+        db.data.find({})
+            .sort({ created_at: -1 })
+            .then(function(sortedData){
+                return res.send(sortedData);
+            })
+            .catch(function(err){
+                return res.send(err);
+            })
+    },
     'index': function (req, res, next) {
         return res.send('server up');
     },
@@ -7,7 +28,7 @@ module.exports = {
         let isString = (typeof req.body.url == 'string') ? true : false;
         if (!isString) return res.send('url (String) is required')
 
-        if(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(req.body.url)){
+        if (/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(req.body.url)) {
             return res.send('crawling ' + req.body.url);
         }
         return res.send({ error: 'url is not valid' });

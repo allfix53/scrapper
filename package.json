@@ -9,6 +9,7 @@
   "author": "alfi setyadi <alfi@dignot.com>",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "mongoose": "^4.6.1",
     "restify": "^4.1.1"
   },
